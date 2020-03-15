@@ -1,0 +1,26 @@
+{
+	"name": "rossvideo-xpression",
+	"version": "1.0.0",
+	"api_version": "1.0.0",
+	"keywords": [
+		"Graphics"
+	],
+	"manufacturer": "Ross Video",
+	"product": "Xpression",
+	"shortname": "xpression",
+	"description": "Ross Video Xpression plugin for Companion",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-rossvideo-xpression.git"
+	},
+	"author": "Keith Rocheck <keith.rocheck@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-rossvideo-xpression/issues"
+	},
+	"homepage": "https://github.com/bitfocus/companion-module-rossvideo-xpression#readme"
+}
