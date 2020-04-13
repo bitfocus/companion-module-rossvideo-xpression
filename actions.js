@@ -12,99 +12,36 @@ module.exports = {
 			'CLFB': {
 				label: 'Clear framebuffer (CLFB)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					}
+					this.FRAMEBUFFER_FIELD
 				]
 			},
 			'CLFB_L': {
 				label: 'Clear layer in framebuffer (CLFB)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.FRAMEBUFFER_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'SWAP_A': { label: 'Load all cued items to all framebuffers (SWAP)' },
 			'SWAP': {
 				label: 'Load cued items in framebuffer (SWAP)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					}
+					this.FRAMEBUFFER_FIELD
 				]
 			},
 			'SEQI': {
 				label: 'Load take item to air on layer (SEQI)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.TAKEID_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'TAKE': {
 				label: 'Load take item to framebuffer layer (TAKE)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					},
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.TAKEID_FIELD,
+					this.FRAMEBUFFER_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'DOWN': { label: 'Move sequencer focus to next item (DOWN)' },
@@ -112,111 +49,41 @@ module.exports = {
 			'CUE': {
 				label: 'Ready item into a framebuffer layer (CUE)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					},
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.TAKEID_FIELD,
+					this.FRAMEBUFFER_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'RESUME': {
 				label: 'Resume all layers in framebuffer (RESUME)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					}
+					this.FRAMEBUFFER_FIELD
 				]
 			},
 			'RESUME_L': {
 				label: 'Resume layer in framebuffer (RESUME)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.FRAMEBUFFER_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'UPNEXT': {
 				label: 'Set preview to take item (UPNEXT)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					}
+					this.TAKEID_FIELD
 				]
 			},
 			'FOCUS': {
 				label: 'Set sequencer focus to take item (FOCUS)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					}
+					this.TAKEID_FIELD
 				]
 			},
 			'LAYEROFF': {
 				label: 'Take layer in framebuffer off air (LAYEROFF)',
 				options: [
-					{
-						type: 'number',
-						label: 'Framebuffer',
-						id: 'fb',
-						default: 1,
-						min: 1,
-						max: 100
-					},
-					{
-						type: 'number',
-						label: 'Layer',
-						id: 'layer',
-						default: 0,
-						min: -10,
-						max: 10
-					}
+					this.FRAMEBUFFER_FIELD,
+					this.LAYER_FIELD
 				]
 			},
 			'READ': { label: 'Take sequencer item to air (READ)' },
@@ -224,27 +91,13 @@ module.exports = {
 			'SEQO': {
 				label: 'Take take item off air (SEQO)',
 				options: [
-					{
-						type: 'number',
-						label: 'Take ID',
-						id: 'takeID',
-						default: 0,
-						min: 0,
-						max: 9999
-					}
+					this.TAKEID_FIELD
 				]
 			},
 			'GPI': {
 				label: 'Trigger simulated GPI (GPI)',
 				options: [
-					{
-						type: 'number',
-						label: 'GPI',
-						id: 'gpi',
-						default: 0,
-						min: 0,
-						max: 9999
-					}
+					this.GPI_FIELD
 				]
 			}
 		};

@@ -2,6 +2,7 @@ var tcp = require('../../tcp');
 var instance_skel = require('../../instance_skel');
 
 var actions       = require('./actions');
+var setup         = require('./setup');
 var debug;
 var log;
 
@@ -27,7 +28,8 @@ class instance extends instance_skel {
 		super(system,id,config);
 
 		Object.assign(this, {
-			...actions
+			...actions,
+			...setup
 		});
 
 		this.actions();
