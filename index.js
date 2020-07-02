@@ -56,23 +56,24 @@ class instance extends instance_skel {
 	action(action) {
 		let opt = action.options;
 		let cmd = '';
+		let fb = 0;
 
 		if (opt.fb !== undefined) {
-			opt.fb--;
+			fb = opt.fb - 1;
 		}
 
 		switch (action.action) {
 			case 'CLFB':
-				cmd = `CLFB ${opt.fb}`;
+				cmd = `CLFB ${fb}`;
 				break;
 			case 'CLFB_L':
-				cmd = `CLFB ${opt.takeID}:${opt.fb}:${opt.layer}`;
+				cmd = `CLFB ${opt.takeID}:${fb}:${opt.layer}`;
 				break;
 			case 'CLRA':
 				cmd = `CLRA`;
 				break;
 			case 'CUE':
-				cmd = `CUE ${opt.takeID}:${opt.fb}:${opt.layer}`;
+				cmd = `CUE ${opt.takeID}:${fb}:${opt.layer}`;
 				break;
 			case 'DOWN':
 				cmd = `DOWN`;
@@ -85,7 +86,7 @@ class instance extends instance_skel {
 				cmd = `GPI ${gpi}`;
 				break;
 			case 'LAYEROFF':
-				cmd = `LAYEROFF ${opt.fb}:${opt.layer}`;
+				cmd = `LAYEROFF ${fb}:${opt.layer}`;
 				break;
 			case 'NEXT':
 				cmd = `NEXT`;
@@ -94,10 +95,10 @@ class instance extends instance_skel {
 				cmd = `READ`;
 				break;
 			case 'RESUME':
-				cmd = `RESUME ${opt.fb}`;
+				cmd = `RESUME ${fb}`;
 				break;
 			case 'RESUME_L':
-				cmd = `RESUME ${opt.fb}:${opt.layer}`;
+				cmd = `RESUME ${fb}:${opt.layer}`;
 				break;
 			case 'SEQI':
 				cmd = `SEQI ${opt.takeID}:${opt.layer}`;
@@ -106,13 +107,13 @@ class instance extends instance_skel {
 				cmd = `SEQO ${opt.takeID}`;
 				break;
 			case 'SWAP':
-				cmd = `SWAP ${opt.fb}`;
+				cmd = `SWAP ${fb}`;
 				break;
 			case 'SWAP_A':
 				cmd = `SWAP`;
 				break;
 			case 'TAKE':
-				cmd = `TAKE ${opt.takeID}:${opt.fb}:${opt.layer}`;
+				cmd = `TAKE ${opt.takeID}:${fb}:${opt.layer}`;
 				break;
 			case 'UP':
 				cmd = `UP`;
