@@ -67,7 +67,7 @@ class instance extends instance_skel {
 				cmd = `CLFB ${fb}`;
 				break;
 			case 'CLFB_L':
-				cmd = `CLFB ${opt.takeID}:${fb}:${opt.layer}`;
+				cmd = `CLFB ${fb}:${opt.layer}`;
 				break;
 			case 'CLRA':
 				cmd = `CLRA`;
@@ -114,6 +114,12 @@ class instance extends instance_skel {
 				break;
 			case 'TAKE':
 				cmd = `TAKE ${opt.takeID}:${fb}:${opt.layer}`;
+				break;
+			case 'UNCUEALL':
+				cmd = `UNCUEALL`;
+				break;
+			case 'UNCUE':
+				cmd = `UNCUE ${opt.takeID}`;
 				break;
 			case 'UP':
 				cmd = `UP`;

@@ -54,6 +54,13 @@ module.exports = {
 					this.LAYER_FIELD
 				]
 			},
+			'UNCUEALL': { label: 'Remove all cued items from the cued state (UNCUEALL)' },
+			'UNCUE': {
+				label: 'Remove take item from the cued state (UNCUE)',
+				options: [
+					this.TAKEID_FIELD
+				]
+			},
 			'RESUME': {
 				label: 'Resume all layers in framebuffer (RESUME)',
 				options: [

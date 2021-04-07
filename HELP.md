@@ -17,6 +17,8 @@ For additional help with Xpression commands, please reference [this guide](http:
 * Move sequencer focus to next item (DOWN)
 * Move sequencer focus to previous item (UP)
 * Ready item into a framebuffer layer (CUE)
+* Remove all cued items from the cued state (UNCUEALL)
+* Remove take item from the cued state (UNCUE)
 * Resume all layers in framebuffer (RESUME)
 * Resume layer in framebuffer (RESUME)
 * Set preview to take item (UPNEXT)
