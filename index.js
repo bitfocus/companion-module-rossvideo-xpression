@@ -1,10 +1,10 @@
-var tcp = require('../../tcp');
-var instance_skel = require('../../instance_skel');
+var tcp = require('../../tcp')
+var instance_skel = require('../../instance_skel')
 
-var actions       = require('./actions');
-var setup         = require('./setup');
-var debug;
-var log;
+var actions = require('./actions')
+var setup = require('./setup')
+var debug
+var log
 
 /**
  * Companion instance class for Ross Video Xpression.
@@ -15,7 +15,6 @@ var log;
  * @author Keith Rocheck <keith.rocheck@gmail.com>
  */
 class instance extends instance_skel {
-
 	/**
 	 * Create an instance of an Xpression module.
 	 *
@@ -24,15 +23,15 @@ class instance extends instance_skel {
 	 * @param {Object} config - saved user configuration parameters
 	 * @since 1.0.0
 	 */
-	constructor(system,id,config) {
-		super(system,id,config);
+	constructor(system, id, config) {
+		super(system, id, config)
 
 		Object.assign(this, {
 			...actions,
-			...setup
-		});
+			...setup,
+		})
 
-		this.actions();
+		this.actions()
 	}
 
 	/**
@@ -43,7 +42,7 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	actions(system) {
-		this.setActions(this.getActions());
+		this.setActions(this.getActions())
 	}
 
 	/**
@@ -54,88 +53,86 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	action(action) {
-		let opt = action.options;
-		let cmd = '';
-		let fb = 0;
+		let opt = action.options
+		let cmd = ''
+		let fb = 0
 
 		if (opt.fb !== undefined) {
-			fb = opt.fb - 1;
+			fb = opt.fb - 1
 		}
 
 		switch (action.action) {
 			case 'CLFB':
-				cmd = `CLFB ${fb}`;
-				break;
+				cmd = `CLFB ${fb}`
+				break
 			case 'CLFB_L':
-				cmd = `CLFB ${fb}:${opt.layer}`;
-				break;
+				cmd = `CLFB ${fb}:${opt.layer}`
+				break
 			case 'CLRA':
-				cmd = `CLRA`;
-				break;
+				cmd = `CLRA`
+				break
 			case 'CUE':
-				cmd = `CUE ${opt.takeID}:${fb}:${opt.layer}`;
-				break;
+				cmd = `CUE ${opt.takeID}:${fb}:${opt.layer}`
+				break
 			case 'DOWN':
-				cmd = `DOWN`;
-				break;
+				cmd = `DOWN`
+				break
 			case 'FOCUS':
-				cmd = `FOCUS ${opt.takeID}`;
-				break;
+				cmd = `FOCUS ${opt.takeID}`
+				break
 			case 'GPI':
-				let gpi = (opt.gpi > 9 ? '' : '0') + opt.gpi;
-				cmd = `GPI ${gpi}`;
-				break;
+				let gpi = (opt.gpi > 9 ? '' : '0') + opt.gpi
+				cmd = `GPI ${gpi}`
+				break
 			case 'LAYEROFF':
-				cmd = `LAYEROFF ${fb}:${opt.layer}`;
-				break;
+				cmd = `LAYEROFF ${fb}:${opt.layer}`
+				break
 			case 'NEXT':
-				cmd = `NEXT`;
-				break;
+				cmd = `NEXT`
+				break
 			case 'READ':
-				cmd = `READ`;
-				break;
+				cmd = `READ`
+				break
 			case 'RESUME':
-				cmd = `RESUME ${fb}`;
-				break;
+				cmd = `RESUME ${fb}`
+				break
 			case 'RESUME_L':
-				cmd = `RESUME ${fb}:${opt.layer}`;
-				break;
+				cmd = `RESUME ${fb}:${opt.layer}`
+				break
 			case 'SEQI':
-				cmd = `SEQI ${opt.takeID}:${opt.layer}`;
-				break;
+				cmd = `SEQI ${opt.takeID}:${opt.layer}`
+				break
 			case 'SEQO':
-				cmd = `SEQO ${opt.takeID}`;
-				break;
+				cmd = `SEQO ${opt.takeID}`
+				break
 			case 'SWAP':
-				cmd = `SWAP ${fb}`;
-				break;
+				cmd = `SWAP ${fb}`
+				break
 			case 'SWAP_A':
-				cmd = `SWAP`;
-				break;
+				cmd = `SWAP`
+				break
 			case 'TAKE':
-				cmd = `TAKE ${opt.takeID}:${fb}:${opt.layer}`;
-				break;
+				cmd = `TAKE ${opt.takeID}:${fb}:${opt.layer}`
+				break
 			case 'UNCUEALL':
-				cmd = `UNCUEALL`;
-				break;
+				cmd = `UNCUEALL`
+				break
 			case 'UNCUE':
-				cmd = `UNCUE ${opt.takeID}`;
-				break;
+				cmd = `UNCUE ${opt.takeID}`
+				break
 			case 'UP':
-				cmd = `UP`;
-				break;
+				cmd = `UP`
+				break
 			case 'UPNEXT':
-				cmd = `UPNEXT ${opt.takeID}`;
-				break;
+				cmd = `UPNEXT ${opt.takeID}`
+				break
 		}
 
 		if (cmd !== undefined) {
-
 			if (this.socket !== undefined && this.socket.connected) {
-				this.socket.send(cmd + '\r\n');
-			}
-			else {
-				this.debug('Socket not connected :(');
+				this.socket.send(cmd + '\r\n')
+			} else {
+				this.debug('Socket not connected :(')
 			}
 		}
 	}
@@ -154,14 +151,15 @@ class instance extends instance_skel {
 				id: 'info',
 				width: 12,
 				label: 'Information',
-				value: 'For additional help with Xpression commands, please reference <a href="http://help.rossvideo.com/carbonite-device/Topics/Protocol/RossTalk/XPN/RT-XPN-Comm.html" target="_new">this guide</a>.'
+				value:
+					'For additional help with Xpression commands, please reference <a href="http://help.rossvideo.com/carbonite-device/Topics/Protocol/RossTalk/XPN/RT-XPN-Comm.html" target="_new">this guide</a>.',
 			},
 			{
 				type: 'textinput',
 				id: 'host',
 				label: 'XPression IP',
 				width: 8,
-				regex: this.REGEX_IP
+				regex: this.REGEX_IP,
 			},
 			{
 				type: 'textinput',
@@ -169,8 +167,8 @@ class instance extends instance_skel {
 				label: 'XPression Port',
 				width: 4,
 				regex: this.REGEX_PORT,
-				default: '7788'
-			}
+				default: '7788',
+			},
 		]
 	}
 
@@ -182,10 +180,10 @@ class instance extends instance_skel {
 	 */
 	destroy() {
 		if (this.socket !== undefined) {
-			this.socket.destroy();
+			this.socket.destroy()
 		}
 
-		this.debug("destroy", this.id);;
+		this.debug('destroy', this.id)
 	}
 
 	/**
@@ -196,10 +194,10 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	init() {
-		debug = this.debug;
-		log = this.log;
+		debug = this.debug
+		log = this.log
 
-		this.initTCP();
+		this.initTCP()
 	}
 
 	/**
@@ -209,47 +207,49 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	initTCP() {
-		var receivebuffer = '';
+		var receivebuffer = ''
 
 		if (this.socket !== undefined) {
-			this.socket.destroy();
-			delete this.socket;
+			this.socket.destroy()
+			delete this.socket
 		}
 
 		if (this.config.host && this.config.port) {
-			this.socket = new tcp(this.config.host, this.config.port);
+			this.socket = new tcp(this.config.host, this.config.port)
 
 			this.socket.on('status_change', (status, message) => {
-				this.status(status, message);
-			});
+				this.status(status, message)
+			})
 
 			this.socket.on('error', (err) => {
-				this.debug("Network error", err);
-				this.log('error',"Network error: " + err.message);
-			});
+				this.debug('Network error', err)
+				this.log('error', 'Network error: ' + err.message)
+			})
 
 			this.socket.on('connect', () => {
-				this.debug("Connected");
-			});
+				this.debug('Connected')
+			})
 
 			// separate buffered stream into lines with responses
 			this.socket.on('data', (chunk) => {
-				var i = 0, line = '', offset = 0;
-				receivebuffer += chunk;
+				var i = 0,
+					line = '',
+					offset = 0
+				receivebuffer += chunk
 
-				while ( (i = receivebuffer.indexOf('\n', offset)) !== -1) {
-					line = receivebuffer.substr(offset, i - offset);
-					offset = i + 1;
+				while ((i = receivebuffer.indexOf('\n', offset)) !== -1) {
+					line = receivebuffer.substr(offset, i - offset)
+					offset = i + 1
 
-					this.socket.emit('receiveline', line.toString());
+					this.socket.emit('receiveline', line.toString())
 				}
 
-				receivebuffer = receivebuffer.substr(offset);
-			});
+				receivebuffer = receivebuffer.substr(offset)
+			})
 
 			this.socket.on('receiveline', (line) => {
 				//eventually do something
-			});
+			})
 		}
 	}
 
@@ -261,21 +261,20 @@ class instance extends instance_skel {
 	 * @since 1.0.0
 	 */
 	updateConfig(config) {
-		var resetConnection = false;
+		var resetConnection = false
 
-		if (this.config.host != config.host)
-		{
-			resetConnection = true;
+		if (this.config.host != config.host) {
+			resetConnection = true
 		}
 
-		this.config = config;
+		this.config = config
 
-		this.actions();
+		this.actions()
 
 		if (resetConnection === true || this.socket === undefined) {
-			this.initTCP();
+			this.initTCP()
 		}
 	}
 }
 
-exports = module.exports = instance;
+exports = module.exports = instance
