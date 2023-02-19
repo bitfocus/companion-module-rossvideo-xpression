@@ -1,5 +1,5 @@
-module.exports = {
-	FRAMEBUFFER_FIELD: {
+export const FIELDS = {
+	FRAMEBUFFER: {
 		type: 'number',
 		label: 'Framebuffer',
 		id: 'fb',
@@ -7,7 +7,7 @@ module.exports = {
 		min: 1,
 		max: 100,
 	},
-	GPI_FIELD: {
+	GPI: {
 		type: 'number',
 		label: 'GPI',
 		id: 'gpi',
@@ -15,7 +15,7 @@ module.exports = {
 		min: 0,
 		max: 9999,
 	},
-	LAYER_FIELD: {
+	LAYER: {
 		type: 'number',
 		label: 'Layer',
 		id: 'layer',
@@ -23,7 +23,7 @@ module.exports = {
 		min: -10,
 		max: 10,
 	},
-	TAKEID_FIELD: {
+	TAKEID: {
 		type: 'number',
 		label: 'Take ID',
 		id: 'takeID',
