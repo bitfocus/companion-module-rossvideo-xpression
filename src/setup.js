@@ -1,5 +1,5 @@
-export const FIELDS = {
-	FRAMEBUFFER: {
+export const Fields = {
+	FrameBuffer: {
 		type: 'number',
 		label: 'Framebuffer',
 		id: 'fb',
@@ -15,7 +15,7 @@ export const FIELDS = {
 		min: 0,
 		max: 9999,
 	},
-	LAYER: {
+	Layer: {
 		type: 'number',
 		label: 'Layer',
 		id: 'layer',
@@ -23,7 +23,7 @@ export const FIELDS = {
 		min: -10,
 		max: 10,
 	},
-	TAKEID: {
+	TakeId: {
 		type: 'number',
 		label: 'Take ID',
 		id: 'takeID',

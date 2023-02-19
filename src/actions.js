@@ -1,4 +1,4 @@
-import { FIELDS } from './setup.js'
+import { Fields } from './setup.js'
 
 /**
  * INTERNAL: Get the available actions.
@@ -72,14 +72,14 @@ export function updateActions() {
 		},
 		CLFB: {
 			name: 'Clear framebuffer (CLFB)',
-			options: [FIELDS.FRAMEBUFFER],
+			options: [Fields.FrameBuffer],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		CLFB_L: {
 			name: 'Clear layer in framebuffer (CLFB)',
-			options: [FIELDS.FRAMEBUFFER, FIELDS.LAYER],
+			options: [Fields.FrameBuffer, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
@@ -93,21 +93,21 @@ export function updateActions() {
 		},
 		SWAP: {
 			name: 'Load cued items in framebuffer (SWAP)',
-			options: [FIELDS.FRAMEBUFFER],
+			options: [Fields.FrameBuffer],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		SEQI: {
 			name: 'Load take item to air on layer (SEQI)',
-			options: [FIELDS.TAKEID, FIELDS.LAYER],
+			options: [Fields.TakeId, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		TAKE: {
 			name: 'Load take item to framebuffer layer (TAKE)',
-			options: [FIELDS.TAKEID, FIELDS.FRAMEBUFFER, FIELDS.LAYER],
+			options: [Fields.TakeId, Fields.FrameBuffer, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
@@ -128,7 +128,7 @@ export function updateActions() {
 		},
 		CUE: {
 			name: 'Ready item into a framebuffer layer (CUE)',
-			options: [FIELDS.TAKEID, FIELDS.FRAMEBUFFER, FIELDS.LAYER],
+			options: [Fields.TakeId, Fields.FrameBuffer, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
@@ -142,42 +142,42 @@ export function updateActions() {
 		},
 		UNCUE: {
 			name: 'Remove take item from the cued state (UNCUE)',
-			options: [FIELDS.TAKEID],
+			options: [Fields.TakeId],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		RESUME: {
 			name: 'Resume all layers in framebuffer (RESUME)',
-			options: [FIELDS.FRAMEBUFFER],
+			options: [Fields.FrameBuffer],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		RESUME_L: {
 			name: 'Resume layer in framebuffer (RESUME)',
-			options: [FIELDS.FRAMEBUFFER, FIELDS.LAYER],
+			options: [Fields.FrameBuffer, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		UPNEXT: {
 			name: 'Set preview to take item (UPNEXT)',
-			options: [FIELDS.TAKEID],
+			options: [Fields.TakeId],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		FOCUS: {
 			name: 'Set sequencer focus to take item (FOCUS)',
-			options: [FIELDS.TAKEID],
+			options: [Fields.TakeId],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		LAYEROFF: {
 			name: 'Take layer in framebuffer off air (LAYEROFF)',
-			options: [FIELDS.FRAMEBUFFER, FIELDS.LAYER],
+			options: [Fields.FrameBuffer, Fields.Layer],
 			callback: (action) => {
 				executeAction(action)
 			},
@@ -198,14 +198,14 @@ export function updateActions() {
 		},
 		SEQO: {
 			name: 'Take take item off air (SEQO)',
-			options: [FIELDS.TAKEID],
+			options: [Fields.TakeId],
 			callback: (action) => {
 				executeAction(action)
 			},
 		},
 		GPI: {
 			name: 'Trigger simulated GPI (GPI)',
-			options: [FIELDS.GPI],
+			options: [Fields.GPI],
 			callback: (action) => {
 				executeAction(action)
 			},
