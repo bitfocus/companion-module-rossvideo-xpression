@@ -20,8 +20,8 @@ export const Fields = {
 		label: 'Layer',
 		id: 'layer',
 		default: 0,
-		min: -10,
-		max: 10,
+		min: -999,
+		max: 999,
 	},
 	TakeId: {
 		type: 'number',

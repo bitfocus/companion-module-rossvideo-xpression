@@ -67,7 +67,7 @@ export function updateActions() {
 			name: 'Clear all framebuffers (CLRA)',
 			options: [],
 			callback: () => {
-				this.sendCommand('CRLA')
+				this.sendCommand('CLRA')
 			},
 		},
 		CLFB: {
