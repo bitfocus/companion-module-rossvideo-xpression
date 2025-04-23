@@ -1,6 +1,6 @@
 {
 	"name": "rossvideo-xpression",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"main": "src/index.js",
 	"type": "module",
 	"scripts": {
@@ -13,11 +13,15 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@companion-module/base": "~1.10"
+		"@companion-module/base": "~1.11"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "~2.0",
+		"@companion-module/tools": "~2.3",
 		"prettier": "^3.0.0"
 	},
-	"prettier": "@companion-module/tools/.prettierrc.json"
+	"prettier": "@companion-module/tools/.prettierrc.json",
+	"engines": {
+		"node": "^22.2"
+	},
+	"packageManager": "yarn@4.8.1"
 }

@@ -36,7 +36,7 @@ class RossvideoXpressionInstance extends InstanceBase {
 				width: 12,
 				label: 'Information',
 				value:
-					'For additional help with Xpression commands, please reference <a href="http://help.rossvideo.com/carbonite-device/Topics/Protocol/RossTalk/XPN/RT-XPN-Comm.html" target="_new">this guide</a>.',
+					'For additional help with Xpression commands, please reference <a href="https://help.rossvideo.com/acuity-device/Topics/Protocol/External/XPN/RT-XPN-Comm.html" target="_blank">this guide</a>.',
 			},
 			{
 				type: 'textinput',

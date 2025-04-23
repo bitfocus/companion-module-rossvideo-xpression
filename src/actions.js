@@ -210,5 +210,19 @@ export function updateActions() {
 				executeAction(action)
 			},
 		},
+		CUSTOM: {
+			name: 'Send a custom command',
+			description: 'Refer to RossTalk Guide',
+			options: [
+				{
+					type: 'textinput',
+					label: 'Command',
+					id: 'cmd',
+				},
+			],
+			callback: async (action) => {
+				this.sendCommand(action.options.cmd)
+			},
+		},
 	})
 }

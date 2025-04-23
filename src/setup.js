@@ -29,6 +29,6 @@ export const Fields = {
 		id: 'takeID',
 		default: 0,
 		min: 0,
-		max: 9999,
+		max: 999999999,
 	},
 }
